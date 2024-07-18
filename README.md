@@ -1,2 +1,2 @@
 # TaskCanvas
-A task management website made in MEAN stack
+A task management website made using MEAN(MongoDb,ExpressJs,Angular,NodeJs) stack
