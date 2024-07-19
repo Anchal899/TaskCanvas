@@ -52,7 +52,7 @@ export class TodoCardComponent implements OnInit {
       cancelButtonText: 'No, keep it'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.http.delete(`http://localhost:3001/api/tasks/${id}`, {
+        this.http.delete(`${process.env.REACT_APP_BACKEND_URL}/tasks/${id}`, {
           withCredentials: true
         }).subscribe(
           (response) => {
@@ -90,7 +90,7 @@ export class TodoCardComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         const updatedTask = result.value;
-        this.http.put(`http://localhost:3001/api/tasks/${task._id}`, updatedTask, {
+        this.http.put(`${process.env.REACT_APP_BACKEND_URL}/tasks/${task._id}`, updatedTask, {
           withCredentials: true
         }).subscribe(
           (response) => {
@@ -147,7 +147,7 @@ export class TodoCardComponent implements OnInit {
   }
 
   fetchTasks(): void {
-    this.http.get<{ message: string, tasks: Task[],id:number }>('http://localhost:3001/api/tasks', {
+    this.http.get<{ message: string, tasks: Task[],id:number }>(`${process.env.REACT_APP_BACKEND_URL}/api/tasks`, {
       withCredentials: true // Ensure cookies are sent with the request
     }).subscribe(
       (response) => {
