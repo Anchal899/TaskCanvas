@@ -4,7 +4,7 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist/task_canvas"
+        "distDir": "task_canvas/dist/" // Adjust this path based on your actual build output
       }
     }
   ],
