@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit{
     Swal.fire("Error","Please enter a valid email");
    }
    else{
-    this.http.post("http://localhost:3001/api/register",user,{
+    this.http.post(`${process.env.REACT_APP_BACKEND_URL}/register`,user,{
       withCredentials:true     //to send jwt automatically to cookies
     }).subscribe(()=>{
       Swal.fire("Success","You have successfully registered");
