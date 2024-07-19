@@ -1,0 +1,19 @@
+{ "routes" = [
+    {
+        path:'',
+        component:DefaultComponent,
+        children:[{path:'',component:RegisterComponent}],
+    },
+    {
+        path:'',
+        component:DefaultComponent,
+        children:[{path:'login',component:LoginComponent}],
+    },
+   
+    {
+        path:'',
+        component:MasterComponent,
+        children:[{path:'todo',component:TodoComponent}],
+    }
+];
+    }
