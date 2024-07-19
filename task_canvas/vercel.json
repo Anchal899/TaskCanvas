@@ -1,19 +1,17 @@
-{ "routes" = [
+{
+  "builds": [
     {
-        path:'',
-        component:DefaultComponent,
-        children:[{path:'',component:RegisterComponent}],
-    },
-    {
-        path:'',
-        component:DefaultComponent,
-        children:[{path:'login',component:LoginComponent}],
-    },
-   
-    {
-        path:'',
-        component:MasterComponent,
-        children:[{path:'todo',component:TodoComponent}],
+      "src": "angular.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/task_canvas"
+      }
     }
-];
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
+  ]
+}
