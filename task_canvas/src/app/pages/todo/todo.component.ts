@@ -31,6 +31,7 @@ export function onSortChange(event: Event): string {
   const sortBy = target.value;
   return sortBy;
 }
+const REACT_APP_BACKEND_URL='https://taskcanvas-backend4.onrender.com';
 @Component({
   selector: 'app-todo',
   standalone: true,
@@ -81,7 +82,7 @@ export class TodoComponent implements OnInit {
   }
  
   fetchUserInfo(): void {
-    this.http.post<UserInfoResponse>(`${process.env.REACT_APP_BACKEND_URL}/userInfo`, {}, {
+    this.http.post<UserInfoResponse>(`${REACT_APP_BACKEND_URL}/userInfo`, {}, {
       withCredentials: true // Ensure cookies are sent with the request
     }).subscribe(
       (response) => {
@@ -97,7 +98,7 @@ export class TodoComponent implements OnInit {
   }
 
   fetchTasks(): void {
-    this.http.get<{ message: string, tasks: Task[] }>(`${process.env.REACT_APP_BACKEND_URL}/tasks`, {
+    this.http.get<{ message: string, tasks: Task[] }>(`${REACT_APP_BACKEND_URL}/tasks`, {
       withCredentials: true // Ensure cookies are sent with the request
     }).subscribe(
       (response) => {
@@ -148,7 +149,7 @@ export class TodoComponent implements OnInit {
       return;
     }
 
-    this.http.post(`${process.env.REACT_APP_BACKEND_URL}/task/${this.userId}`, task, {
+    this.http.post(`${REACT_APP_BACKEND_URL}/task/${this.userId}`, task, {
       withCredentials: true // Send cookies with the request
     }).subscribe(
       () => {
