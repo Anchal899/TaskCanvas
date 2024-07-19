@@ -81,7 +81,7 @@ export class TodoComponent implements OnInit {
   }
  
   fetchUserInfo(): void {
-    this.http.post<UserInfoResponse>('http://localhost:3001/api/userInfo', {}, {
+    this.http.post<UserInfoResponse>(`${process.env.REACT_APP_BACKEND_URL}/userInfo`, {}, {
       withCredentials: true // Ensure cookies are sent with the request
     }).subscribe(
       (response) => {
@@ -97,7 +97,7 @@ export class TodoComponent implements OnInit {
   }
 
   fetchTasks(): void {
-    this.http.get<{ message: string, tasks: Task[] }>('http://localhost:3001/api/tasks', {
+    this.http.get<{ message: string, tasks: Task[] }>(`${process.env.REACT_APP_BACKEND_URL}/tasks`, {
       withCredentials: true // Ensure cookies are sent with the request
     }).subscribe(
       (response) => {
@@ -148,7 +148,7 @@ export class TodoComponent implements OnInit {
       return;
     }
 
-    this.http.post(`http://localhost:3001/api/task/${this.userId}`, task, {
+    this.http.post(`${process.env.REACT_APP_BACKEND_URL}/task/${this.userId}`, task, {
       withCredentials: true // Send cookies with the request
     }).subscribe(
       () => {
