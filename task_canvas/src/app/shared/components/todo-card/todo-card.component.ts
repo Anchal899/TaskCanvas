@@ -21,7 +21,7 @@ interface Task {
     details: string;
   }[];
 }
-
+const REACT_APP_BACKEND_URL='https://taskcanvas-backend4.onrender.com';
 @Component({
   selector: 'app-todo-card',
   standalone: true,
@@ -52,7 +52,7 @@ export class TodoCardComponent implements OnInit {
       cancelButtonText: 'No, keep it'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.http.delete(`${process.env.REACT_APP_BACKEND_URL}/tasks/${id}`, {
+        this.http.delete(`${REACT_APP_BACKEND_URL}/tasks/${id}`, {
           withCredentials: true
         }).subscribe(
           (response) => {
@@ -90,7 +90,7 @@ export class TodoCardComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         const updatedTask = result.value;
-        this.http.put(`${process.env.REACT_APP_BACKEND_URL}/tasks/${task._id}`, updatedTask, {
+        this.http.put(`${REACT_APP_BACKEND_URL}/tasks/${task._id}`, updatedTask, {
           withCredentials: true
         }).subscribe(
           (response) => {
