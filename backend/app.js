@@ -16,7 +16,7 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Credentials', 'true');
   next();
 });
-app.use("/api",routes);
+app.use(routes);
 
 const corsOptions = {
   origin: 'http://localhost:4200', // Allow requests from this origin
