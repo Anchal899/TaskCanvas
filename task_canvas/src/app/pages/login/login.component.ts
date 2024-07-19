@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators,FormControl, ReactiveFormsModule} fro
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2'
+const REACT_APP_BACKEND_URL='https://taskcanvas-backend4.onrender.com';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -41,7 +42,7 @@ export class LoginComponent {
     Swal.fire("Error","Please enter a valid email");
    }
    else{
-    this.http.post(`${process.env.REACT_APP_BACKEND_URL}/login`,user,{
+    this.http.post(`${REACT_APP_BACKEND_URL}/login`,user,{
       withCredentials:true     //to send jwt automatically to cookies
     }).subscribe(()=>this.router.navigate(['todo']),(err)=>{
       Swal.fire("Error",err.error.message,"error");
