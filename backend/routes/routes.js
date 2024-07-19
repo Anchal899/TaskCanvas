@@ -20,7 +20,13 @@ const authenticate = (req, res, next) => {
         res.status(400).send('Invalid Token');
     }
 };
-
+router.get('/', async (req, res) => {
+    try {
+        res.send('<html><body><h1>Hello</h1></body></html>');
+    } catch (err) {
+        res.status(500).send('An error occurred');
+    }
+});
 router.post('/register', async (req, res) => {
     const { username, email, password } = req.body;
     const salt = await bcrypt.genSalt(10);
