@@ -147,7 +147,7 @@ export class TodoCardComponent implements OnInit {
   }
 
   fetchTasks(): void {
-    this.http.get<{ message: string, tasks: Task[],id:number }>(`${process.env.REACT_APP_BACKEND_URL}/api/tasks`, {
+    this.http.get<{ message: string, tasks: Task[],id:number }>(`${REACT_APP_BACKEND_URL}/api/tasks`, {
       withCredentials: true // Ensure cookies are sent with the request
     }).subscribe(
       (response) => {
