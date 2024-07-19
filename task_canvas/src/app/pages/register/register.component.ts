@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators,ReactiveFormsModule } from '@angular
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import Swal from'sweetalert2';
-
+const REACT_APP_BACKEND_URL='https://taskcanvas-backend4.onrender.com';
 @Component({
   selector: 'app-register',
   standalone:true,
@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit{
     Swal.fire("Error","Please enter a valid email");
    }
    else{
-    this.http.post(`${process.env.REACT_APP_BACKEND_URL}/register`,user,{
+    this.http.post(`${REACT_APP_BACKEND_URL}/register`,user,{
       withCredentials:true     //to send jwt automatically to cookies
     }).subscribe(()=>{
       Swal.fire("Success","You have successfully registered");
