@@ -41,7 +41,7 @@ export class LoginComponent {
     Swal.fire("Error","Please enter a valid email");
    }
    else{
-    this.http.post("http://localhost:3001/api/login",user,{
+    this.http.post(`${process.env.REACT_APP_BACKEND_URL}/login`,user,{
       withCredentials:true     //to send jwt automatically to cookies
     }).subscribe(()=>this.router.navigate(['todo']),(err)=>{
       Swal.fire("Error",err.error.message,"error");
